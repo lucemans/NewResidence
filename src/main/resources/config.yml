@@ -1,0 +1,3 @@
+prefix: "&r[&a&lNew&c&lResidence&r]"
+nopermission: "%prefix% No Permission"
+boot: "%prefix% Successfully launched!!"
