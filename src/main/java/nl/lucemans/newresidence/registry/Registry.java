@@ -18,6 +18,14 @@ public class Registry {
     public ArrayList<Residence> residences;
     public ArrayList<ResidenceType> residenceTypes;
 
+    public ResidenceType getResidenceTypeByName(String name) {
+        for (ResidenceType res : residenceTypes) {
+            if (res.name.equalsIgnoreCase(name))
+                return res;
+        }
+        return null;
+    }
+
     public void load(){
         if (residenceTypeFile.exists()) {
             try {
