@@ -3,5 +3,5 @@ version: 1.0
 main: nl.lucemans.newresidence.NewResidence
 commands:
    residence:
-     alias: [res, nres, newresidence]
+     aliases: [res, nres, newresidence]
      description: New Residence main command

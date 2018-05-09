@@ -10,6 +10,8 @@ import org.bukkit.entity.Player;
 public class SetupCommand implements BaseCommand {
 
     private CreateCommand createCMD = new CreateCommand();
+    private LocationCommand locationCommand = new LocationCommand();
+    private SetSpawnCommand setSpawnCommand = new SetSpawnCommand();
 
     public void execute(Player p, String[] args) {
         if (args.length == 1) {
@@ -19,6 +21,14 @@ public class SetupCommand implements BaseCommand {
 
         if (args[1].equalsIgnoreCase("create")) {
             createCMD.execute(p, args);
+            return;
+        }
+        if (args[1].equalsIgnoreCase("region")) {
+            locationCommand.execute(p, args);
+            return;
+        }
+        if (args[1].equalsIgnoreCase("spawn")) {
+            setSpawnCommand.execute(p, args);
             return;
         }
     }

@@ -18,13 +18,16 @@ public class NewResidence extends JavaPlugin {
     public void onEnable() {
         super.onEnable();
         saveDefaultConfig();
+        NewResidenceAPI.instance = this;
+
+        Lang.config = getConfig();
 
         registry = new Registry();
+
         registry.load();
 
         getCommand("residence").setExecutor(new ResidenceCommand());
 
-        NewResidenceAPI.instance = this;
         Bukkit.getLogger().info(Lang.get(Lang.lang.BOOT));
     }
 

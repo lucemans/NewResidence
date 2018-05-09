@@ -24,4 +24,10 @@ public class ResidenceType implements Serializable{
     public SerializableLocation spawn;
     public SerializableLocation posMark;
     public SerializableLocation negMark;
+
+    public void check() {
+        if (this.state == State.SETUP)
+            if (this.posMark != null && this.negMark != null && this.spawn != null)
+                this.state = State.READY;
+    }
 }

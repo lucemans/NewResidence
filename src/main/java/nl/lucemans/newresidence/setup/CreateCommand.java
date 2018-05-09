@@ -26,6 +26,7 @@ public class CreateCommand implements BaseCommand {
 
         ResidenceType res = new ResidenceType();
         res.name = name;
+        res.check();
         NewResidenceAPI.getInstance().getRegistry().residenceTypes.add(res);
         p.sendMessage("ResidenceType `" + name + "` successfully created.");
     }

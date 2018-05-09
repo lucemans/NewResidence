@@ -1,1 +1,4 @@
-residence
+residence setup create <name>
+residence info <name>
+res setup region <name>
+res setup spawn <name>

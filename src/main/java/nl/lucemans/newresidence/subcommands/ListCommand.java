@@ -1,4 +1,4 @@
-package nl.lucemans.subcommands;
+package nl.lucemans.newresidence.subcommands;
 
 import nl.lucemans.newresidence.NewResidenceAPI;
 import nl.lucemans.newresidence.command.base.BaseCommand;

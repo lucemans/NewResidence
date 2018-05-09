@@ -1,5 +1,7 @@
 package nl.lucemans.newresidence.registry;
 
+import nl.lucemans.newresidence.NewResidence;
+import nl.lucemans.newresidence.NewResidenceAPI;
 import nl.lucemans.newresidence.residence.Residence;
 import nl.lucemans.newresidence.residence.ResidenceType;
 
@@ -12,11 +14,11 @@ import java.util.ArrayList;
  */
 public class Registry {
 
-    private File residenceFile = new File("/plugins/NewResidence/residences.dat");
-    private File residenceTypeFile = new File("/plugins/NewResidence/residencetypes.dat");
+    private File residenceFile;
+    private File residenceTypeFile;
 
-    public ArrayList<Residence> residences;
-    public ArrayList<ResidenceType> residenceTypes;
+    public ArrayList<Residence> residences = new ArrayList<Residence>();
+    public ArrayList<ResidenceType> residenceTypes = new ArrayList<ResidenceType>();
 
     public ResidenceType getResidenceTypeByName(String name) {
         for (ResidenceType res : residenceTypes) {
@@ -26,7 +28,13 @@ public class Registry {
         return null;
     }
 
+    public void init(){
+        residenceFile = new File(NewResidenceAPI.getInstance().getDataFolder(), "residences.dat");
+        residenceTypeFile = new File(NewResidenceAPI.getInstance().getDataFolder(), "residencestypes.dat");
+    }
+
     public void load(){
+        init();
         if (residenceTypeFile.exists()) {
             try {
                 FileInputStream fis = new FileInputStream(residenceTypeFile);
