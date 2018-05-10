@@ -38,6 +38,7 @@ public class SetSpawnCommand implements BaseCommand {
 
         resT.spawn = new SerializableLocation(p.getLocation().clone().subtract(resT.negMark.getLocation()));
 
+        resT.check();
         p.sendMessage("Successfully saved the spawn!");
     }
 }

@@ -2,8 +2,10 @@ package nl.lucemans.newresidence.command;
 
 import nl.lucemans.newresidence.setup.LocationCommand;
 import nl.lucemans.newresidence.setup.SetupCommand;
+import nl.lucemans.newresidence.subcommands.HomeCommand;
 import nl.lucemans.newresidence.subcommands.InfoCommand;
 import nl.lucemans.newresidence.subcommands.ListCommand;
+import nl.lucemans.newresidence.subcommands.MakeCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,6 +20,8 @@ public class ResidenceCommand implements CommandExecutor {
     private SetupCommand setupCMD = new SetupCommand();
     private ListCommand listCMD = new ListCommand();
     private InfoCommand infoCMD = new InfoCommand();
+    private MakeCommand makeCMD = new MakeCommand();
+    private HomeCommand homeCMD = new HomeCommand();
 
     public boolean onCommand(CommandSender commandSender, Command command, String label, String[] args) {
         if (args.length == 0){
@@ -40,6 +44,14 @@ public class ResidenceCommand implements CommandExecutor {
         }
         if (args[0].equalsIgnoreCase("info")) {
             infoCMD.execute(p, args);
+            return true;
+        }
+        if (args[0].equalsIgnoreCase("make")) {
+            makeCMD.execute(p, args);
+            return true;
+        }
+        if (args[0].equalsIgnoreCase("home")) {
+            homeCMD.execute(p, args);
             return true;
         }
         commandSender.sendMessage("Please perform /residence help");

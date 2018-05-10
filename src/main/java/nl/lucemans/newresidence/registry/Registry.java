@@ -28,6 +28,16 @@ public class Registry {
         return null;
     }
 
+    public ArrayList<Residence> getResidenceByOwner(String owner) {
+        ArrayList<Residence> res = new ArrayList<Residence>();
+        for (Residence r : residences) {
+            if (r.owner.equalsIgnoreCase(owner)) {
+                res.add(r);
+            }
+        }
+        return res;
+    }
+
     public void init(){
         residenceFile = new File(NewResidenceAPI.getInstance().getDataFolder(), "residences.dat");
         residenceTypeFile = new File(NewResidenceAPI.getInstance().getDataFolder(), "residencestypes.dat");
